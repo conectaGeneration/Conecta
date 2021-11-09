@@ -16,14 +16,16 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
-	@Size(min = 5, max = 100)
+	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	@Size(max = 100)
 	private String tipo;
 	
-	@NotBlank
+	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	@Size(max = 100)
 	private String descricao;
 	
-	@NotBlank
+	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	@Size(max = 100)
 	private String segmento;
 
 	public long getId() {
