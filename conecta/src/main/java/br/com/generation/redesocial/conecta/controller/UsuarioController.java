@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.generation.redesocial.conecta.model.Tema;
-import br.com.generation.redesocial.conecta.repository.TemaRepository;
+import br.com.generation.redesocial.conecta.model.Usuario;
+import br.com.generation.redesocial.conecta.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/tema")
+@RequestMapping("/usuario")
 @CrossOrigin (origins = "*", allowedHeaders = "*")
-public class TemaController {
+public class UsuarioController {
 
 	@Autowired
-	private TemaRepository repository;
+	private UsuarioRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Tema>> getAll() {
+	public ResponseEntity<List<Usuario>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Tema> getById (@PathVariable long id) {
+	public ResponseEntity<Usuario> getById (@PathVariable long id) {
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
-	@GetMapping("/segmento/{segmento}")
-	public ResponseEntity<List<Tema>> GetBySegmento (@PathVariable String segmento) {
-		return ResponseEntity.ok(repository.findAllBySegmentoContainingIgnoreCase(segmento));
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Usuario>> GetByNome (@PathVariable String nome) {
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	@PostMapping
-	public ResponseEntity<Tema> PostTema (@RequestBody Tema tema){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
+	public ResponseEntity<Usuario> PostUsuario (@RequestBody Usuario usuario){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(usuario));
 	}
 	@PutMapping
-	public ResponseEntity<Tema> PutTema (@RequestBody Tema tema){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(tema));
+	public ResponseEntity<Usuario> PutUsuario (@RequestBody Usuario usuario){
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
 	}
 	@DeleteMapping("/{id}")
-	public void DeleteTema(@PathVariable long id) {
+	public void DeleteUsuario(@PathVariable long id) {
 		repository.deleteById(id);
 	}
 }

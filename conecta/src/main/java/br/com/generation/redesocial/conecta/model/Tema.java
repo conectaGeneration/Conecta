@@ -1,12 +1,17 @@
 package br.com.generation.redesocial.conecta.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_tema")
@@ -17,16 +22,28 @@ public class Tema {
 	private long id;
 	
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(max = 100)
+	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String tipo;
 	
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(max = 100)
+	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String descricao;
 	
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(max = 100)
+	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String segmento;
+	
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("tema")
+	private List<Postagem> postagem;
+	
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 
 	public long getId() {
 		return id;
@@ -55,9 +72,7 @@ public class Tema {
 	public String getSegmento() {
 		return segmento;
 	}
-
-	public void setSegmento(String segmento) {
+	public void setSegmento(String segmento){
 		this.segmento = segmento;
 	}
-
 }
