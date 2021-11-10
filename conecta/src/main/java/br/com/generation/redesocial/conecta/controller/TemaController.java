@@ -1,6 +1,7 @@
 package br.com.generation.redesocial.conecta.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.generation.redesocial.conecta.model.Tema;
 import br.com.generation.redesocial.conecta.repository.TemaRepository;
 
@@ -35,24 +37,20 @@ public class TemaController {
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
-	
 	@GetMapping("/segmento/{segmento}")
-	public ResponseEntity<List<Tema>> getBySegmento (@PathVariable String segmento) {
+	public ResponseEntity<List<Tema>> GetBySegmento (@PathVariable String segmento) {
 		return ResponseEntity.ok(repository.findAllBySegmentoContainingIgnoreCase(segmento));
 	}
-	
 	@PostMapping
-	public ResponseEntity<Tema> post (@RequestBody Tema tema){
+	public ResponseEntity<Tema> PostTema (@RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
-	
 	@PutMapping
-	public ResponseEntity<Tema> put (@RequestBody Tema tema){
+	public ResponseEntity<Tema> PutTema (@RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(tema));
 	}
-	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable long id) {
+	public void DeleteTema(@PathVariable long id) {
 		repository.deleteById(id);
 	}
 }
