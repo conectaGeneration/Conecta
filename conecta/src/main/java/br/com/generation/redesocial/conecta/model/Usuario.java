@@ -1,3 +1,5 @@
+//TODO trocar ALL por remove (cascade.ALL)
+
 package br.com.generation.redesocial.conecta.model;
 
 import java.util.List;
@@ -34,9 +36,18 @@ public class Usuario {
 	@Size(min=5,max=80, message="A senha deve ter entre 5 e 80 caracteres, com letras e números")
 	private String senha;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
+	
+	public Usuario(long id, String nome, String email, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+	
+	public Usuario() {}
 	
 	public List<Postagem> getPostagem() {
 		return postagem;

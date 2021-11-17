@@ -1,3 +1,6 @@
+
+//TODO implementar PUT e DELETE para fazer tratamento atraves do método http
+
 package br.com.generation.redesocial.conecta.controller;
 
 import java.util.List;
