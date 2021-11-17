@@ -17,37 +17,36 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5,max = 30, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 30")
+	@Size(min = 5, max = 30, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 30")
 	private String titulo;
-	
+
 	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5,max = 500, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 500")
+	@Size(min = 5, max = 500, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 500")
 	private String texto;
-	
+
 	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5,max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
+	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String imagem;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	@JoinColumn(name = "fk_idtema")
 	private Tema tema;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	@JoinColumn(name = "fk_idusuario")
 	private Usuario usuario;
-	
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -103,5 +102,5 @@ public class Postagem {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	
+
 }

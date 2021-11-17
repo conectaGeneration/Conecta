@@ -16,27 +16,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_tema")
 public class Tema {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
 	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String tipo;
-	
+
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
 	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String descricao;
-	
+
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
 	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String segmento;
-	
+
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
-	
+
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
@@ -72,7 +72,8 @@ public class Tema {
 	public String getSegmento() {
 		return segmento;
 	}
-	public void setSegmento(String segmento){
+
+	public void setSegmento(String segmento) {
 		this.segmento = segmento;
 	}
 }
