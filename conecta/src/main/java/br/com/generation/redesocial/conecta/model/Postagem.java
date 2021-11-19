@@ -102,5 +102,10 @@ public class Postagem {
 	public void setData(Date data) {
 		this.data = data;
 	}
+<<<<<<< HEAD
 
 }
+=======
+	
+}
+>>>>>>> main

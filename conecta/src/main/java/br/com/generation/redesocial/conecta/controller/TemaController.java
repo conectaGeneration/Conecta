@@ -35,6 +35,7 @@ public class TemaController {
 	public ResponseEntity<Tema> getById(@PathVariable long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
+<<<<<<< HEAD
 
 	@GetMapping("/segmento/{segmento}")
 	public ResponseEntity<List<Tema>> GetBySegmento(@PathVariable String segmento) {
@@ -51,8 +52,26 @@ public class TemaController {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(tema));
 	}
 
+=======
+	
+	@GetMapping("/segmento/{segmento}")
+	public ResponseEntity<List<Tema>> getBySegmento (@PathVariable String segmento) {
+		return ResponseEntity.ok(repository.findAllBySegmentoContainingIgnoreCase(segmento));
+	}
+	
+	@PostMapping
+	public ResponseEntity<Tema> post (@RequestBody Tema tema){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
+	}
+	
+	@PutMapping
+	public ResponseEntity<Tema> put (@RequestBody Tema tema){
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(tema));
+	}
+	
+>>>>>>> main
 	@DeleteMapping("/{id}")
-	public void DeleteTema(@PathVariable long id) {
+	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
 }

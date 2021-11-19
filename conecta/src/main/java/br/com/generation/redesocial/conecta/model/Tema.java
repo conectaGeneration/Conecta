@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -22,15 +23,15 @@ public class Tema {
 	private long id;
 
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
+	@Size(min =1,max = 100)
 	private String tipo;
 
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
+	@Size(min =1,max = 100)
 	private String descricao;
 
 	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
+	@Size(min =1,max = 100)
 	private String segmento;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
@@ -76,4 +77,5 @@ public class Tema {
 	public void setSegmento(String segmento) {
 		this.segmento = segmento;
 	}
+
 }

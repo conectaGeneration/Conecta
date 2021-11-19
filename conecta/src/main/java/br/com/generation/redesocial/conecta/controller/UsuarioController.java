@@ -1,16 +1,23 @@
+<<<<<<< HEAD
+=======
+// TODO PUT DELETE E USUARIO - implementar
+>>>>>>> main
 package br.com.generation.redesocial.conecta.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import br.com.generation.redesocial.conecta.model.UserLogin;
 import br.com.generation.redesocial.conecta.model.Usuario;
+import br.com.generation.redesocial.conecta.repository.UsuarioRepository;
 import br.com.generation.redesocial.conecta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +32,19 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
+<<<<<<< HEAD
+=======
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+
+	@GetMapping("/all")
+	public ResponseEntity<List<Usuario>> getAll() {
+
+		return ResponseEntity.ok(usuarioRepository.findAll());
+
+	}
+
+>>>>>>> main
 	@PostMapping("/logar")
 	public ResponseEntity<UserLogin> loginUsuario(@RequestBody Optional<UserLogin> user) {
 		return usuarioService.autenticarUsuario(user).map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
