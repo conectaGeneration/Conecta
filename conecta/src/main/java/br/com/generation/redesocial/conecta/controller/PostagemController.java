@@ -1,6 +1,4 @@
-
-//TODO implementar PUT e DELETE para fazer tratamento atraves do método http
-
+//TODO implementar PUT e DELETE para fazer tratamento atraves do método http - github Camis
 package br.com.generation.redesocial.conecta.controller;
 
 import java.util.List;
