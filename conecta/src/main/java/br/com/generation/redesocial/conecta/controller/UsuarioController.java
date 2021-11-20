@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// TODO PUT DELETE E USUARIO - implementar
->>>>>>> main
 package br.com.generation.redesocial.conecta.controller;
 
 import java.util.List;
@@ -32,8 +28,6 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
-<<<<<<< HEAD
-=======
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
@@ -44,7 +38,6 @@ public class UsuarioController {
 
 	}
 
->>>>>>> main
 	@PostMapping("/logar")
 	public ResponseEntity<UserLogin> loginUsuario(@RequestBody Optional<UserLogin> user) {
 		return usuarioService.autenticarUsuario(user).map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-//FEITO - TODO trocar ALL por remove (cascade.ALL)
-// @Email = anotação
->>>>>>> main
 package br.com.generation.redesocial.conecta.model;
 
 import java.util.List;
@@ -16,7 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,16 +28,10 @@ public class Usuario {
 	@NotBlank(message = "Valor não pode ser nulo")
 	@Size(min = 5, max = 80, message = "O nome deve ter entre 5 e 80 caracteres")
 	private String nome;
-<<<<<<< HEAD
 
-	@NotBlank(message = "Valor não pode ser nulo")
-	@Size(min = 5, max = 80, message = "O email deve ter entre 5 e 80 caracteres")
-=======
-		
 	@ApiModelProperty(example = "email@email.com.br")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	@NotBlank(message="Valor não pode ser nulo")
->>>>>>> main
 	private String email;
 
 	@NotBlank(message = "Valor não pode ser nulo")
@@ -103,9 +91,5 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> main
 }
