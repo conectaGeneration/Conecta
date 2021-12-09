@@ -7,6 +7,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import br.com.generation.redesocial.conecta.model.UserLogin;
 import br.com.generation.redesocial.conecta.model.Usuario;
 import br.com.generation.redesocial.conecta.repository.UsuarioRepository;
@@ -68,9 +69,12 @@ public class UsuarioService {
 			if (compararSenhas(userLogin.get().getSenha(), usuario.get().getSenha())) {
 
 				String token = gerarBasicToken(userLogin.get().getEmail(), userLogin.get().getSenha());
+
 				userLogin.get().setId(usuario.get().getId());
 				userLogin.get().setNome(usuario.get().getNome());
 				userLogin.get().setSenha(usuario.get().getSenha());
+				userLogin.get().setFoto(usuario.get().getFoto());
+				userLogin.get().setTipo(usuario.get().getTipo());
 				userLogin.get().setToken(token);
 
 				return userLogin;

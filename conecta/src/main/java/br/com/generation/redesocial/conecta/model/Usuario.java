@@ -31,12 +31,16 @@ public class Usuario {
 
 	@ApiModelProperty(example = "email@email.com.br")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
-	@NotBlank(message="Valor não pode ser nulo")
+	@NotBlank(message = "Valor não pode ser nulo")
 	private String email;
 
 	@NotBlank(message = "Valor não pode ser nulo")
 	@Size(min = 5, max = 80, message = "A senha deve ter entre 5 e 80 caracteres, com letras e números")
 	private String senha;
+
+	private String foto;
+
+	private String tipo;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -90,6 +94,22 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
