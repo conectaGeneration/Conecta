@@ -22,16 +22,16 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(min =1,max = 100)
+	//@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	//@Size(min =1,max = 100)
 	private String tipo;
 	
-	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	//@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
 	@Size(min =1,max = 100)
 	private String descricao;
 	
-	@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
-	@Size(min =1,max = 100)
+	//@NotBlank(message = "Este campo não pode ficar em branco e pode ter no max 100 caracteres")
+	//@Size(min =1,max = 100)
 	private String segmento;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
