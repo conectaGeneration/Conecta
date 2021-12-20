@@ -23,15 +23,14 @@ public class Postagem {
 	private long id;
 
 	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5, max = 30, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 30")
+	@Size(min = 1, max = 40, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 30")
 	private String titulo;
 
 	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5, max = 500, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 500")
+	@Size(min = 1, max = 500, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 500")
 	private String texto;
 
-	@NotBlank(message = "Este campo não pode ficar vazio")
-	@Size(min = 5, max = 100, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
+	@Size(min = 1, max = 2000, message = "O titulo deve ter no mínimo 5 caracteres e no máximo 100")
 	private String imagem;
 
 	@Temporal(TemporalType.TIMESTAMP)

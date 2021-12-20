@@ -26,11 +26,11 @@ public class Usuario {
 	private long id;
 
 	@NotBlank(message = "Valor não pode ser nulo")
-	@Size(min = 5, max = 80, message = "O nome deve ter entre 5 e 80 caracteres")
+	@Size(min = 1, max = 100, message = "O nome deve ter entre 1 e 100 caracteres")
 	private String nome;
 
 	@ApiModelProperty(example = "email@email.com.br")
-	@Email(message = "O atributo Usuário deve ser um email válido!")
+	@Email(message = "O atributo email deve ter um email válido!")
 	@NotBlank(message = "Valor não pode ser nulo")
 	private String email;
 
